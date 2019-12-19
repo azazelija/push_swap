@@ -19,7 +19,8 @@ t_moves	*best_way_from_a_to_b(t_stack *stack)
 	t_moves *move;
 
 	i = 0;
-	while (i < stack->a_size) {
+	while (i < stack->a_size)
+	{
 		move = find_move_from_a_to_b(stack, i);
 		if (i == 0)
 			best = move;

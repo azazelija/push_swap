@@ -12,37 +12,44 @@
 
 #include "checker.h"
 
-void	basic_sort(t_stack *stack)
+int 	find_max_el_index(int *stack, int size)
 {
-	if (stack_is_sorted(stack) && stack->b_size == 0)
-		return ;
-	if (stack->a_size <= 3)
-		return (sort_3_numbers_stack(stack));
-	else
-		big_sort(stack);
+	int 	max;
+	int		i;
+	int 	index;
+
+	max = 0;
+	i = -1;
+	index = 0;
+
+	if (size == 0)
+		return (-1);
+	while (++i < size)
+		if (stack[i] > max)
+		{
+			max = stack[i];
+			index = i;
+		}
+	return  (index);
 }
 
-void	sort_3_numbers_stack(t_stack *stack)
+int 	find_min_el_index(int *stack, int size)
 {
-	int 	max_el_index;
+	int 	min;
+	int		i;
+	int 	index;
 
-	if (stack->a_size == 1)
-		return ;
-	if (stack->a_size == 2)
-	{
-		if (stack->a[0] > stack->a[1])
-			apply_sa(stack);
-	}
-	else if (stack->a_size == 3)
-	{
-		max_el_index = find_max_el_index(stack->a, stack->a_size);
-		if (max_el_index == 0)
-			apply_ra(stack);
-		if (max_el_index == 1)
-			apply_rra(stack);
-		if (stack->a[0] > stack->a[1])
-			apply_sa(stack);
-	}
+	if (size == 0)
+		return (-1);
+	min = INT_MAX;
+	i = -1;
+	index = 0;
 
+	while (++i < size)
+		if (stack[i] < min)
+		{
+			min = stack[i];
+			index = i;
+		}
+	return  (index);
 }
-

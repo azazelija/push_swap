@@ -39,25 +39,6 @@ void	big_sort(t_stack *stack)
 	insert_back_in_a(stack);
 }
 
-int 	find_min_el_index(int *a, int size)
-{
-	int 	min;
-	int		i;
-	int 	index;
-
-	min = INT_MAX;
-	i = -1;
-	index = 0;
-
-	while (++i < size)
-		if (a[i] < min)
-		{
-			min = a[i];
-			index = i;
-		}
-	return  (index);
-}
-
 void	process_moves(t_moves *best_move, t_stack *stack)
 {
 	while (best_move->a_moves)

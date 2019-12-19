@@ -25,6 +25,7 @@ FILES := check_for_sorting \
         find_best_way \
         find_rot_type \
         push_back_to_a \
+        find_max_el_and_index \
 
 LFTDIR := ./libft
 

@@ -18,7 +18,7 @@ void	initialization_stack(t_stack *stack, int ac)
 		exit(1);
 	if (!(stack->b = (int *)ft_memalloc(sizeof(int) * ac)))
 		exit(1);
-	stack->a_size = ac - 1;
+	stack->a_size = ac;
 	stack->b_size = 0;
 	stack->counter_com = 0;
 }
@@ -27,7 +27,7 @@ void	write_args_to_stack(t_stack *stack, char **av, int ac)
 {
 	int		i;
 
-	i = 0;
+	i = -1;
 	if (!validate_args(av, ac))
 	{
 		ft_putstr_fd("Error\n", 2);
@@ -35,7 +35,7 @@ void	write_args_to_stack(t_stack *stack, char **av, int ac)
 		exit(1);
 	}
 	while (++i < ac)
-		stack->a[i - 1] = ft_atoi(av[i]);
+		stack->a[i] = ft_atoi(av[i]);
 }
 
 int		validate_args(char **av, int ac)
@@ -44,7 +44,7 @@ int		validate_args(char **av, int ac)
 	int		j;
 	int 	k;
 
-	i = 0;
+	i = -1;
 	while (++i < ac)
 	{
 		j = i;
@@ -71,4 +71,19 @@ void	free_stack(t_stack *stack)
 	free(stack->b);
 	free(stack);
 	stack = NULL;
+}
+
+char	**split_args_to_stack(t_stack *stack, char **av, int *ac)
+{
+	av = ft_strsplit(av[0], ' ');
+	*ac = 0;
+	while (av && av[*ac])
+		*ac += 1;
+	if (*ac == 0)
+	{
+		ft_putstr_fd("Error\n", 2);
+		free(stack);
+		exit(1);
+	}
+	return (av);
 }

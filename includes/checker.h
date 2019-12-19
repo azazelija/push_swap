@@ -68,8 +68,8 @@ void				apply_rrr(t_stack *stack);
 void				basic_sort(t_stack *stack);
 void				sort_3_numbers_stack(t_stack *stack);
 void				big_sort(t_stack *stack);
-int 				find_max_el_index(int *a, int size);
-int 				find_min_el_index(int *a, int size);
+int 				find_max_el_index(int *stack, int size);
+int 				find_min_el_index(int *stack, int size);
 t_moves				*best_way_from_a_to_b(t_stack *stack);
 t_moves				*find_move_from_a_to_b(t_stack *stack, int i);
 int					find_a_rot_type(int len, int pos, char **a_rot_type);
@@ -82,5 +82,6 @@ void				insert_leftover_to_b(t_stack *stack);
 void				insert_back_in_a(t_stack *stack);
 int					find_place_in_a(int *stack, int len, int elem, char **rot_type);
 void				place_smallest_first_a(t_stack *stack);
+char				**split_args_to_stack(t_stack *stack, char **av, int *ac);
 
 #endif

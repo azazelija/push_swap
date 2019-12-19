@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-long long	ft_atoi(const char *str)
+int		ft_atoi(const char *str)
 {
-	long long i;
-	long long nb;
-	long long flag;
+	int i;
+	int nb;
+	int flag;
 
 	i = 0;
 	nb = 0;
