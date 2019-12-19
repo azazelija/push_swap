@@ -45,9 +45,12 @@ typedef struct	s_moves
 	int			total;
 }				t_moves;
 
+/* CHECHER */
+
 void				free_stack(t_stack *stack);
 int					get_next_line(const int fd, char **line);
 void				initialization_stack(t_stack *stack, int ac);
+char				**split_args_to_stack(t_stack *stack, char **av, int *ac);
 void				write_args_to_stack(t_stack *stack, char **av, int ac);
 int					validate_args(char **av, int ac);
 int 				stack_is_sorted(t_stack *stack);
@@ -64,24 +67,16 @@ void				apply_rr(t_stack *stack);
 void				apply_rra(t_stack *stack);
 void				apply_rrb(t_stack *stack);
 void				apply_rrr(t_stack *stack);
+
 /*PUSH_SWAP*/
+
 void				basic_sort(t_stack *stack);
 void				sort_3_numbers_stack(t_stack *stack);
 void				big_sort(t_stack *stack);
 int 				find_max_el_index(int *stack, int size);
 int 				find_min_el_index(int *stack, int size);
-t_moves				*best_way_from_a_to_b(t_stack *stack);
-t_moves				*find_move_from_a_to_b(t_stack *stack, int i);
-int					find_a_rot_type(int len, int pos, char **a_rot_type);
-int					find_b_rot_type(int len, int pos, char **b_rot_type);
-int					find_place_in_b(int *stack, int len, int elem, char **rot_type);
-int					find_common(t_moves *moves);
-void				free_moves(t_moves *moves);
-void				process_moves(t_moves *best_move, t_stack *stack);
-void				insert_leftover_to_b(t_stack *stack);
-void				insert_back_in_a(t_stack *stack);
-int					find_place_in_a(int *stack, int len, int elem, char **rot_type);
-void				place_smallest_first_a(t_stack *stack);
-char				**split_args_to_stack(t_stack *stack, char **av, int *ac);
+int 				*find_max_elems(int *stack, int size);
+void				small_sort_stack(t_stack *stack);
+void				push_back_to_a(t_stack *stack);
 
 #endif
