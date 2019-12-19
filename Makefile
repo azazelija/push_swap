@@ -21,7 +21,10 @@ FILES := check_for_sorting \
         parse_args_to_stack \
         get_next_line \
         basic_sort_process \
-        big_sort_process
+        big_sort_process \
+        find_best_way \
+        find_rot_type \
+        push_back_to_a \
 
 LFTDIR := ./libft
 

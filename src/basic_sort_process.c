@@ -64,3 +64,4 @@ int 	find_max_el_index(int *a, int size)
 		}
 	return  (index);
 }
+

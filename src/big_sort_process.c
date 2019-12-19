@@ -14,38 +14,29 @@
 
 void	big_sort(t_stack *stack)
 {
-	t_shift *top_shift;
-	int 		optimize;
+	t_moves	*best;
+	int		opt;
 
-	optimize = (stack->a_size > 200)? 50 : 2;
-	while (stack->b_size != 2)
-		apply_pb(stack);
-	while (stack->a_size > optimize)
-	{
-		top_shift_finder(stack, top_shift);
-		while (top_shift->all_shift)
+	opt = (stack->a_size > 200)? 50 : 2;
+
+	apply_pb(stack);
+	apply_pb(stack);
+	while (stack->a_size > opt) {
+		best = best_way_from_a_to_b(stack);
+		while (best->common_moves)
 		{
-			if (ft_strequ(top_shift->all_rotation, "rr"))
+			if (ft_strequ(best->common_rot, "rr"))
 				apply_rr(stack);
 			else
 				apply_rrr(stack);
-			top_shift->all_shift--;
+			best->common_moves--;
 		}
-		process_moves(top_shift, stack);
+		process_moves(best, stack);
 		apply_pb(stack);
-		free_shift(top_shift);
+		free_moves(best);
 	}
 	insert_leftover_to_b(stack);
 	insert_back_in_a(stack);
-}
-
-void	free_shift(t_shift *shift)
-{
-	free(shift->a_rotation);
-	free(shift->b_rotation);
-	free(shift->all_rotation);
-	free(shift);
-	shift = NULL;
 }
 
 int 	find_min_el_index(int *a, int size)
@@ -65,4 +56,41 @@ int 	find_min_el_index(int *a, int size)
 			index = i;
 		}
 	return  (index);
+}
+
+void	process_moves(t_moves *best_move, t_stack *stack)
+{
+	while (best_move->a_moves)
+	{
+		if (ft_strequ(best_move->a_rot_type, "ra"))
+			apply_ra(stack);
+		else
+			apply_rra(stack);
+		best_move->a_moves--;
+	}
+	while (best_move->b_moves)
+	{
+		if (ft_strequ(best_move->b_rot_type, "rb"))
+			apply_rb(stack);
+		else
+			apply_rrb(stack);
+		best_move->b_moves--;
+	}
+}
+
+void	insert_leftover_to_b(t_stack *stack)
+{
+	int idx;
+
+	idx = 0;
+	while (stack->a_size > 2)
+	{
+		idx = find_min_el_index(stack->a, stack->a_size);
+		if (idx == 0)
+			apply_pb(stack);
+		else if (idx <= stack->a_size / 2)
+			apply_ra(stack);
+		else if (idx > stack->a_size / 2)
+			apply_rra(stack);
+	}
 }

@@ -33,17 +33,17 @@ typedef struct		s_stack
 	int		print_com;
 }					t_stack;
 
-typedef struct	s_shift
+typedef struct	s_moves
 {
-	int			item;
-	int			a_shift;
-	int			b_shift;
-	int			all_shift;
-	char		*a_rotation;
-	char		*b_rotation;
-	char		*all_rotation;
-	int			counter_com;
-}				t_shift;
+	int			elem;
+	int			a_moves;
+	char		*a_rot_type;
+	char		*b_rot_type;
+	char		*common_rot;
+	int			b_moves;
+	int			common_moves;
+	int			total;
+}				t_moves;
 
 void				free_stack(t_stack *stack);
 int					get_next_line(const int fd, char **line);
@@ -70,13 +70,17 @@ void				sort_3_numbers_stack(t_stack *stack);
 void				big_sort(t_stack *stack);
 int 				find_max_el_index(int *a, int size);
 int 				find_min_el_index(int *a, int size);
-void				free_shift(t_shift *shift);
-void				top_shift_finder(t_stack *stack, t_shift *shift);
-void				initalize_shift(t_stack *stack,t_shift *shift, int pos);
-int					a_rotating_finding(int len, int pos, char **a_rot_type);
-int					b_rotating_finding(int len, int pos, char **b_rot_type);
+t_moves				*best_way_from_a_to_b(t_stack *stack);
+t_moves				*find_move_from_a_to_b(t_stack *stack, int i);
+int					find_a_rot_type(int len, int pos, char **a_rot_type);
+int					find_b_rot_type(int len, int pos, char **b_rot_type);
 int					find_place_in_b(int *stack, int len, int elem, char **rot_type);
-int					find_common(t_shift *moves);
-
+int					find_common(t_moves *moves);
+void				free_moves(t_moves *moves);
+void				process_moves(t_moves *best_move, t_stack *stack);
+void				insert_leftover_to_b(t_stack *stack);
+void				insert_back_in_a(t_stack *stack);
+int					find_place_in_a(int *stack, int len, int elem, char **rot_type);
+void				place_smallest_first_a(t_stack *stack);
 
 #endif
