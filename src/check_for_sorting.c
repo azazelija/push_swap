@@ -29,6 +29,7 @@ void	do_operation(t_stack *stack)
 {
 	char 	*op;
 
+	op = 0;
 	while (get_next_line(0, &op) > 0)
 	{
 		if (!op)

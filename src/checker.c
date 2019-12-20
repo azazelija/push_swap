@@ -26,11 +26,10 @@ int		main(int ac, char **av)
 	}
 	initialization_stack(stack, ac);
 	stack->print_com = 0;
-	if (ac > 1)
+	if (ac > 0)
 	{
 		write_args_to_stack(stack, av, ac);
-		if (!stack_is_sorted(stack))
-			do_operation(stack);
+		do_operation(stack);
 		if (stack_is_sorted(stack) && stack->b_size == 0)
 			write(1, "OK\n", 3);
 		else

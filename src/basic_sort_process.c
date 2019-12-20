@@ -18,7 +18,7 @@ void	basic_sort(t_stack *stack)
 		return ;
 	if (stack->a_size <= 3)
 		return (sort_3_numbers_stack(stack));
-	else if (stack->a_size < 10)
+	else if (stack->a_size <= 5)
 		small_sort_stack(stack);
 	else
 		big_sort(stack);
@@ -53,7 +53,7 @@ void	sort_3_numbers_stack(t_stack *stack)
 }
 
 /*
- * Sort 4-10 elements
+ * Sort 5 elements
  */
 
 void	small_sort_stack(t_stack *stack)
@@ -70,6 +70,7 @@ void	small_sort_stack(t_stack *stack)
 	}
 	sort_3_numbers_stack(stack);
 	push_back_to_a(stack);
+	free(max);
 }
 
 /*
@@ -78,25 +79,20 @@ void	small_sort_stack(t_stack *stack)
 
 void	push_back_to_a(t_stack *stack)
 {
-	int flag;
 	int *max;
 
 	max = find_max_elems(stack->b, stack->b_size);
-	flag = 0;
 	while (stack->b_size > 0)
 	{
 		if (stack->b[0] == max[0])
 		{
 			apply_pa(stack);
-			if (flag)
-				apply_sa(stack);
-			flag = 0;
-			max = find_max_elems(stack->b, stack->b_size);
+			apply_pa(stack);
 		}
 		else if (stack->b[0] == max[1])
 		{
-			apply_pa(stack);
-			flag = 1;
+			apply_sb(stack);
 		}
 	}
+	free(max);
 }

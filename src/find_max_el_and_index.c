@@ -57,7 +57,7 @@ int 	find_min_el_index(int *stack, int size)
 int 	*find_max_elems(int *stack, int size)
 {
 	int		*max_elems;
-	
+
 
 	max_elems = (int*)malloc(sizeof(int) * 3);
 	max_elems[0] = stack[0];
@@ -79,3 +79,4 @@ int 	*find_max_elems(int *stack, int size)
 			max_elems[2] = stack[size];
 	return (max_elems);
 }
+
