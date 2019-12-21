@@ -24,7 +24,7 @@ void		args_to_array(t_stack *stack, t_args *args)
 	bubble_sort_arr_args(args, stack->a_size);
 }
 
-void		bubble_sort_arr_args(t_args *args, size_t size)
+void		bubble_sort_arr_args(t_args *args, int size)
 {
 	int				i;
 	int				sort;

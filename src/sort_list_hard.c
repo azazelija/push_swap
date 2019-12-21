@@ -12,57 +12,28 @@
 
 #include "checker.h"
 
-void	big_sort(t_stack *stack, t_args *args)
-{
-	args_to_array(stack, args);
-	from_a_to_b(stack, args);
-	big_sort_process(stack, args);
-}
-
-void	big_sort_process(t_stack *stack, t_args *args)
-{
-	leave_3_nbrs_in_a(stack, args);
-	sort_3_numbers_stack(stack);
-	//sort_lists_hard(stack, args);
-}
-
-void	leave_3_nbrs_in_a(t_stack *stack, t_args *args)
-{
-	int			code;
-	int			i;
-	int 		tmp;
-
-	i = stack->a_size;
-	while (i--)
-	{
-		tmp = stack->a[0];
-		code = 1;
-		if (tmp != args->max_i && tmp != args->mid_i
-			&& tmp != args->min_i)
-		{
-			apply_pb(stack);
-			code = 0;
-		}
-		if (code)
-		{
-			apply_ra(stack);
-		}
-	}
-}
-
-//void	sort_lists_hard(t_stack *stack, t_args *args)
+//static t_solution		check_stack_b(t_stack *stacks)
 //{
-//	t_solution			sol;
+//	t_solution			best_sol;
+//	t_solution			cur_sol;
+//	size_t				size;
+//	size_t				i;
+//	t_lst				*end_b;
 //
-//	while (stack->b_size)
+//	ft_bzero(&best_sol, sizeof(t_solution));
+//	ft_bzero(&cur_sol, sizeof(t_solution));
+//	i = 0;
+//	end_b = stacks->b;
+//	size = stacks->size_b;
+//	best_sol = get_solution(stacks, end_b->value, i);
+//	while (i < size)
 //	{
-//		sol = check_stack_b(stack);
-//		spin_stack(&stacks, sol);
-//		pa(&stacks.a, &stacks.b);
-//		ft_printf("pa\n");
-//		--stacks.size_b;
-//		++stacks.size_a;
+//		cur_sol = get_solution(stacks, end_b->value, i);
+//		if (cur_sol.num_all < best_sol.num_all)
+//			best_sol = cur_sol;
+//		end_b = end_b->next;
+//		++i;
 //	}
-//	final_sort(&stacks.a, args);
-//	destroy_stacks(&stacks);
+//	return (best_sol);
 //}
+

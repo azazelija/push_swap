@@ -23,11 +23,10 @@ FILES := check_for_sorting \
         basic_sort_process \
         big_sort_process \
         find_max_el_and_index \
-        find_place \
-        find_rotation \
-        initialize_moves \
-        process_moves \
-        push_back \
+        free_objects \
+        from_a_to_b \
+        sort_array \
+        sort_list_hard \
 
 LFTDIR := ./libft
 

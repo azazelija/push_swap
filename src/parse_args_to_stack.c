@@ -23,7 +23,7 @@ void	initialization_stack(t_stack *stack, int ac)
 	stack->counter_com = 0;
 }
 
-void	initialization_args(t_args *args, size_t size)
+void	initialization_args(t_args *args, int size)
 {
 	if (!(args->arr = (int*)malloc(sizeof(int) * size)))
 		exit(1);

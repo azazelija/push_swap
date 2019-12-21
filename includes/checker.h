@@ -37,11 +37,11 @@ typedef struct		s_solution
 typedef struct		s_args
 {
 	int				*arr;
-	size_t			max_i;
-	size_t			mid_s;
-	size_t			mid_e;
-	size_t			mid_i;
-	size_t			min_i;
+	int			max_i;
+	int			mid_s;
+	int			mid_e;
+	int			mid_i;
+	int			min_i;
 }					t_args;
 
 typedef struct		s_stack
@@ -89,11 +89,14 @@ int 				find_min_el_index(int *stack, int size);
 int 				*find_max_elems(int *stack, int size);
 void				small_sort_stack(t_stack *stack);
 void				push_back_to_a(t_stack *stack);
-void				initialization_args(t_args *args, size_t size);
+void				initialization_args(t_args *args, int size);
 void				args_to_array(t_stack *stack, t_args *args);
-void				bubble_sort_arr_args(t_args *args, size_t size);
+void				bubble_sort_arr_args(t_args *args, int size);
 void				init_args_local(t_args *args, int size, int i);
 void 				from_a_to_b(t_stack *stack, t_args *args);
+void				big_sort_process(t_stack *stack, t_args *args);
+void				leave_3_nbrs_in_a(t_stack *stack, t_args *args);
+void				sort_lists_hard(t_stack *stack, t_args *args);
 
 
 #endif
