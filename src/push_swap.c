@@ -15,8 +15,10 @@
 int		main(int ac, char **av)
 {
 	t_stack		*stack;
+	t_args		*args;
 
-	if (!(stack = (t_stack *)malloc(sizeof(t_stack))))
+	if (!(stack = (t_stack *)malloc(sizeof(t_stack))) ||
+		!(args = (t_args *)malloc(sizeof(t_args))))
 		exit(1);
 	ac--;
 	av++;
@@ -25,14 +27,15 @@ int		main(int ac, char **av)
 		av = split_args_to_stack(stack, av, &ac);
 	}
 	initialization_stack(stack, ac);
+	initialization_args(args, ac);
 	stack->print_com = 1;
 	if (ac > 1)
 	{
 		write_args_to_stack(stack, av, ac);
-		basic_sort(stack);
+		basic_sort(stack, args);
 	}
 	else
 		exit(1);
-	free_stack(stack);
+	free_stack_and_args(stack, args);
 	return (0);
 }

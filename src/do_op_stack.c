@@ -14,18 +14,26 @@
 
 void	apply_sa(t_stack *stack)
 {
+	int 	tmp;
+
 	if (stack->a_size < 2)
 		return ;
-	ft_swap(&stack->a[0], &stack->a[1]);
+	tmp = stack->a[0];
+	stack->a[0] = stack->a[1];
+	stack->a[1] = tmp;
 	stack->print_com ? write(1, "sa\n", 3) : 0;
 	stack->counter_com++;
 }
 
 void	apply_sb(t_stack *stack)
 {
+	int 	tmp;
+
 	if (stack->b_size < 2)
 		return ;
-	ft_swap(&stack->b[0], &stack->b[1]);
+	tmp = stack->b[0];
+	stack->b[0] = stack->b[1];
+	stack->b[1] = tmp;
 	stack->print_com ? write(1, "sb\n", 3) : 0;
 	stack->counter_com++;
 }
@@ -49,10 +57,10 @@ void	apply_pa(t_stack *stack)
 		stack->a[i + 1] = stack->a[i];
 	stack->a[0] = stack->b[0];
 	i = 0;
-	while (i++ < stack->b_size - 1)
+	while (i++ <= stack->b_size - 1)
 		stack->b[i - 1] = stack->b[i];
-	stack->a_size += 1;
-	stack->b_size -= 1;
+	stack->a_size++;
+	stack->b_size--;
 	stack->print_com ? write(1, "pa\n", 3) : 0;
 	stack->counter_com++;
 }
@@ -68,7 +76,7 @@ void	apply_pb(t_stack *stack)
 		stack->b[i + 1] = stack->b[i];
 	stack->b[0] = stack->a[0];
 	i = 0;
-	while (i++ < stack->a_size - 1)
+	while (i++ <= stack->a_size - 1)
 		stack->a[i - 1] = stack->a[i];
 	stack->b_size++;
 	stack->a_size--;

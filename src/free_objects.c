@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   big_sort_process.c                                 :+:      :+:    :+:   */
+/*   ft_checker.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fculator <mstackvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fculator <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/30 17:15:25 by fculator          #+#    #+#             */
-/*   Updated: 2019/11/30 17:15:30 by fculator         ###   ########.fr       */
+/*   Created: 2019/11/23 00:23:18 by fculator          #+#    #+#             */
+/*   Updated: 2019/11/23 00:23:20 by fculator         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	big_sort(t_stack *stack, t_args *args)
+void	free_stack(t_stack *stack)
 {
-	args_to_array(stack, args);
-	from_a_to_b(stack, args);
+	free(stack->a);
+	free(stack->b);
+	free(stack);
+	stack = NULL;
+}
+
+void	free_stack_and_args(t_stack *stack, t_args *args)
+{
+	free(stack->a);
+	free(stack->b);
+	free(stack);
+	stack = NULL;
+	free(args->arr);
+	free(args);
+	args = NULL;
 }

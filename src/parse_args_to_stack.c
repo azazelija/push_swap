@@ -23,6 +23,18 @@ void	initialization_stack(t_stack *stack, int ac)
 	stack->counter_com = 0;
 }
 
+void	initialization_args(t_args *args, size_t size)
+{
+	if (!(args->arr = (int*)malloc(sizeof(int) * size)))
+		exit(1);
+	ft_bzero(args->arr, size);
+	args->max_i = 0;
+	args->mid_s = 0;
+	args->mid_e = 0;
+	args->mid_i = 0;
+	args->min_i = 0;
+}
+
 void	write_args_to_stack(t_stack *stack, char **av, int ac)
 {
 	int		i;
@@ -63,14 +75,6 @@ int		validate_args(char **av, int ac)
 		}
 	}
 	return (1);
-}
-
-void	free_stack(t_stack *stack)
-{
-	free(stack->a);
-	free(stack->b);
-	free(stack);
-	stack = NULL;
 }
 
 char	**split_args_to_stack(t_stack *stack, char **av, int *ac)

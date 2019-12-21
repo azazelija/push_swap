@@ -12,8 +12,46 @@
 
 #include "checker.h"
 
-void	big_sort(t_stack *stack, t_args *args)
+void		args_to_array(t_stack *stack, t_args *args)
 {
-	args_to_array(stack, args);
-	from_a_to_b(stack, args);
+	int		i;
+
+	i = -1;
+	while (++i < stack->a_size)
+	{
+		args->arr[i] = stack->a[i];
+	}
+	bubble_sort_arr_args(args, stack->a_size);
+}
+
+void		bubble_sort_arr_args(t_args *args, size_t size)
+{
+	int				i;
+	int				sort;
+
+	sort = 0;
+	while (sort == 0)
+	{
+		sort = 1;
+		i = 1;
+		while (i < size)
+		{
+			if (args->arr[i - 1] > args->arr[i])
+			{
+				ft_swap(&args->arr[i - 1], &args->arr[i]);
+				sort = 0;
+			}
+			++i;
+		}
+	}
+	init_args_local(args, size, i);
+}
+
+void			init_args_local(t_args *args, int size, int i)
+{
+	args->min_i = args->arr[0];
+	args->mid_s = args->arr[i / 3];
+	args->mid_e = args->arr[i * 2 / 3];
+	args->mid_i = args->mid_s + ((args->mid_e - args->mid_s) / 2);
+	args->max_i = args->arr[size - 1];
 }

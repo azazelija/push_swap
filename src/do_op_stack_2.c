@@ -19,10 +19,13 @@ void	apply_ra(t_stack *stack)
 
 	if (stack->a_size == 0)
 		return ;
-	i = 0;
+	i = 1;
 	tmp = stack->a[0];
-	while (++i < stack->a_size)
-		stack->a[i - 1]	= stack->a[i];
+	while (i < stack->a_size)
+	{
+		stack->a[i - 1] = stack->a[i];
+		i++;
+	}
 	stack->a[i - 1] = tmp;
 	stack->print_com ? write(1, "ra\n", 3) : 0;
 	stack->counter_com++;
@@ -35,10 +38,13 @@ void	apply_rb(t_stack *stack)
 
 	if (stack->b_size == 0)
 		return ;
-	i = 0;
+	i = 1;
 	tmp = stack->b[0];
-	while (++i < stack->b_size)
-		stack->b[i - 1]	= stack->b[i];
+	while (i < stack->b_size)
+	{
+		stack->b[i - 1] = stack->b[i];
+		i++;
+	}
 	stack->b[i - 1] = tmp;
 	stack->print_com ? write(1, "rb\n", 3) : 0;
 	stack->counter_com++;

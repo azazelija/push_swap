@@ -12,7 +12,7 @@
 
 #include "checker.h"
 
-void	basic_sort(t_stack *stack)
+void	basic_sort(t_stack *stack, t_args *args)
 {
 	if (stack_is_sorted(stack) && stack->b_size == 0)
 		return ;
@@ -21,7 +21,7 @@ void	basic_sort(t_stack *stack)
 	else if (stack->a_size <= 5)
 		small_sort_stack(stack);
 	else
-		big_sort(stack);
+		big_sort(stack, args);
 }
 
 /*
