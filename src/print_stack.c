@@ -11,37 +11,35 @@
 /* ************************************************************************** */
 
 #include "checker.h"
+#include <stdio.h>
 
-void 	from_a_to_b(t_stack *stack, t_args *args)
+void		print_stack(t_stack *stack)
 {
-	int 			tmp;
-	int 			size;
-	int 			code;
-
-	size = stack->a_size;
-	while (size-- || size > 3)
-	{
-		tmp = stack->a[0];
-		code = 1;
-		if (tmp > args->min_i && tmp < args->mid_s)
-		{
-			apply_pb(stack);
-			apply_rb(stack);
-			code = 0;
-		}
-		else if (tmp >= args->mid_s && tmp <= args->mid_e && tmp != args->mid_i)
-		{
-			apply_pb(stack);
-			code = 0;
-		}
-		else if ((tmp > args->mid_e && tmp <= args->max_i)
-				 || (tmp == args->min_i || tmp == args->mid_i))
-		{
-			apply_ra(stack);
-			code = 0;
-		}
-		if (code)
-			apply_ra(stack);
+	printf("-----------------STACK A----------------------\n");
+	if (stack->a_size == 0)
+		printf("*************A empty**********************\n");
+	for (int i = 0; i < stack->a_size; i++) {
+		printf("%d\n", stack->a[i]);
 	}
+	printf("----------------------------------------------\n");
+	printf("-----------------STACK B----------------------\n");
+	if (stack->b_size == 0)
+		printf("*************B empty**********************\n");
+	for (int i = 0; i < stack->b_size; i++) {
+		printf("%d\n", stack->b[i]);
+	}
+	printf("----------------------------------------------\n");
+}
+
+void		print_solution(t_solution *sol)
+{
+	printf("all = %d\t", sol->num_all);
+	printf("ra = %d\t", sol->num_ra);
+	printf("rb = %d\t", sol->num_rb);
+	printf("rr = %d\t", sol->num_rr);
+	printf("rra = %d\t", sol->num_rra);
+	printf("rrb = %d\t", sol->num_rrb);
+	printf("rrr = %d\t", sol->num_rrr);
+	printf("\n");
 }
 

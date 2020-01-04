@@ -14,19 +14,21 @@ NAME:= checker
 NAME_PW:= push_swap
 FILE_C:= checker
 FILE_PW := push_swap
-FILES := check_for_sorting \
-        do_op_stack \
-        do_op_stack_2 \
-        do_op_stack_3 \
-        parse_args_to_stack \
-        get_next_line \
-        basic_sort_process \
-        big_sort_process \
-        find_max_el_and_index \
-        free_objects \
-        from_a_to_b \
-        sort_array \
-        sort_list_hard \
+FILES := basic_sort_process \
+			big_sort_process \
+			check_for_sorting \
+			do_op_stack \
+			do_op_stack_2 \
+			do_op_stack_3 \
+			final_big_sort \
+			find_max_el_and_index \
+			find_solution \
+			free_objects \
+			from_a_to_b \
+			get_next_line \
+			parse_args_to_stack \
+			solution_steps \
+			sort_array \
 
 LFTDIR := ./libft
 

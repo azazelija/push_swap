@@ -14,9 +14,9 @@
 
 void	initialization_stack(t_stack *stack, int ac)
 {
-	if (!(stack->a = (int *)malloc(sizeof(int) * ac)))
+	if (!(stack->a = (int *)malloc(sizeof(int) * (ac + 1))))
 		exit(1);
-	if (!(stack->b = (int *)ft_memalloc(sizeof(int) * ac)))
+	if (!(stack->b = (int *)ft_memalloc(sizeof(int) * (ac + 1))))
 		exit(1);
 	stack->a_size = ac;
 	stack->b_size = 0;

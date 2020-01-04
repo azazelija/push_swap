@@ -12,28 +12,59 @@
 
 #include "checker.h"
 
-//static t_solution		check_stack_b(t_stack *stacks)
-//{
-//	t_solution			best_sol;
-//	t_solution			cur_sol;
-//	size_t				size;
-//	size_t				i;
-//	t_lst				*end_b;
-//
-//	ft_bzero(&best_sol, sizeof(t_solution));
-//	ft_bzero(&cur_sol, sizeof(t_solution));
-//	i = 0;
-//	end_b = stacks->b;
-//	size = stacks->size_b;
-//	best_sol = get_solution(stacks, end_b->value, i);
-//	while (i < size)
-//	{
-//		cur_sol = get_solution(stacks, end_b->value, i);
-//		if (cur_sol.num_all < best_sol.num_all)
-//			best_sol = cur_sol;
-//		end_b = end_b->next;
-//		++i;
-//	}
-//	return (best_sol);
-//}
+void			spin_stack(t_stack *stack, t_solution sol)
+{
+	while (sol.num_ra-- > 0)
+	{
+		apply_ra(stack);
+	}
+	while (sol.num_rb-- > 0)
+	{
+		apply_rb(stack);
+	}
+	while (sol.num_rra-- > 0)
+	{
+		apply_rra(stack);
+	}
+	while (sol.num_rrb-- > 0)
+	{
+		apply_rrb(stack);
+	}
+	while (sol.num_rr-- > 0)
+	{
+		apply_rr(stack);
+	}
+	while (sol.num_rrr-- > 0)
+	{
+		apply_rrr(stack);
+	}
+}
 
+void		final_sort(t_stack *stack, t_args *args)
+{
+	size_t		i;
+	size_t		n;
+	t_stack		*stack_a;
+	t_stack		*stack_a2;
+
+	i = 0;
+	n = 0;
+	stack_a = stack;
+	stack_a2 = stack;
+	while (stack_a->a[0] != args->min_i)
+	{
+		apply_rra(stack_a);
+		++i;
+	}
+	while (stack_a2->a[0] != args->min_i)
+	{
+		apply_ra(stack_a2);
+		++n;
+	}
+	if (i < n)
+		while (stack->a[0] != args->min_i)
+			apply_rra(stack);
+	else
+		while (stack->a[0] != args->min_i)
+			apply_ra(stack);
+}

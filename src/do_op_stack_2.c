@@ -52,8 +52,15 @@ void	apply_rb(t_stack *stack)
 
 void	apply_rr(t_stack *stack)
 {
+	int 	tmp;
+
+	tmp = stack->print_com;
+	stack->print_com = 0;
+
 	apply_ra(stack);
 	apply_rb(stack);
+	if (tmp != 0)
+		stack->print_com = 1;
 	stack->print_com ? write(1, "rr\n", 3) : 0;
 	stack->counter_com++;
 }

@@ -12,46 +12,49 @@
 
 #include "checker.h"
 
-void		args_to_array(t_stack *stack, t_args *args)
+t_solution		check_stack_b(t_stack *stack)
 {
-	int		i;
+	t_solution			best_sol;
+	t_solution			cur_sol;
+	size_t				size;
+	size_t				i;
 
-	i = -1;
-	while (++i < stack->a_size)
+	ft_bzero(&best_sol, sizeof(t_solution));
+	ft_bzero(&cur_sol, sizeof(t_solution));
+	i = 0;
+	size = stack->b_size;
+	best_sol = get_solution(stack, stack->b[i], i);
+	while (i < size)
 	{
-		args->arr[i] = stack->a[i];
+		cur_sol = get_solution(stack, stack->b[i], i);
+		if (cur_sol.num_all < best_sol.num_all)
+			best_sol = cur_sol;
+		++i;
 	}
-	bubble_sort_arr_args(args, stack->a_size);
+	return (best_sol);
 }
 
-void		bubble_sort_arr_args(t_args *args, int size)
+t_solution		get_solution(t_stack *stack, int num, size_t i)
 {
-	int				i;
-	int				sort;
+	t_solution			solve[4];
+	t_direction			cur_dir;
+	t_direction			best_dir;
+	int					min_cmd;
 
-	sort = 0;
-	while (sort == 0)
+	ft_bzero(solve, sizeof(t_solution) * 4);
+	first_step(solve, i, stack, num);
+	second_step(solve, i, stack, num);
+	cur_dir = FIRST;
+	min_cmd = solve[FIRST].num_all;
+	best_dir = cur_dir;
+	while (cur_dir <= LAST)
 	{
-		sort = 1;
-		i = 1;
-		while (i < size)
+		if (solve[cur_dir].num_all < min_cmd)
 		{
-			if (args->arr[i - 1] > args->arr[i])
-			{
-				ft_swap(&args->arr[i - 1], &args->arr[i]);
-				sort = 0;
-			}
-			++i;
+			best_dir = cur_dir;
+			min_cmd = solve[cur_dir].num_all;
 		}
+		cur_dir++;
 	}
-	init_args_local(args, size);
-}
-
-void			init_args_local(t_args *args, int size)
-{
-	args->min_i = args->arr[0];
-	args->mid_s = args->arr[size / 3];
-	args->mid_e = args->arr[size * 2 / 3];
-	args->mid_i = args->mid_s + ((args->mid_e - args->mid_s) / 2);
-	args->max_i = args->arr[size - 1];
+	return (solve[best_dir]);
 }

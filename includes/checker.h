@@ -23,6 +23,16 @@
 # define BUFF_SIZE 32
 # define FD_MAX 255
 
+typedef	enum		e_direction
+{
+	UP = 0,
+	DOWN = 1,
+	UP_DOWN = 2,
+	DOWN_UP = 3,
+	FIRST = UP,
+	LAST = DOWN_UP
+}					t_direction;
+
 typedef struct		s_solution
 {
 	int				num_ra;
@@ -92,11 +102,22 @@ void				push_back_to_a(t_stack *stack);
 void				initialization_args(t_args *args, int size);
 void				args_to_array(t_stack *stack, t_args *args);
 void				bubble_sort_arr_args(t_args *args, int size);
-void				init_args_local(t_args *args, int size, int i);
+void				init_args_local(t_args *args, int size);
 void 				from_a_to_b(t_stack *stack, t_args *args);
 void				big_sort_process(t_stack *stack, t_args *args);
 void				leave_3_nbrs_in_a(t_stack *stack, t_args *args);
-void				sort_lists_hard(t_stack *stack, t_args *args);
+void				sort_stack_hard(t_stack *stack, t_args *args);
+t_solution			check_stack_b(t_stack *stack);
+t_solution			get_solution(t_stack *stacks, int num, size_t i);
+void				first_step(t_solution *solve, size_t i, t_stack *s,
+									  int num);
+int					get_insert_index(t_stack *stack, int num);
+void				second_step(t_solution *solve, size_t i, t_stack *s,
+							int num);
+void				spin_stack(t_stack *stack, t_solution sol);
+void				final_sort(t_stack *stack, t_args *args);
 
 
+void		print_stack(t_stack *stack);
+void		print_solution(t_solution *sol);
 #endif

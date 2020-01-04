@@ -23,7 +23,7 @@ void	big_sort_process(t_stack *stack, t_args *args)
 {
 	leave_3_nbrs_in_a(stack, args);
 	sort_3_numbers_stack(stack);
-	//sort_lists_hard(stack, args);
+	sort_stack_hard(stack, args);
 }
 
 void	leave_3_nbrs_in_a(t_stack *stack, t_args *args)
@@ -50,19 +50,15 @@ void	leave_3_nbrs_in_a(t_stack *stack, t_args *args)
 	}
 }
 
-//void	sort_lists_hard(t_stack *stack, t_args *args)
-//{
-//	t_solution			sol;
-//
-//	while (stack->b_size)
-//	{
-//		sol = check_stack_b(stack);
-//		spin_stack(&stacks, sol);
-//		pa(&stacks.a, &stacks.b);
-//		ft_printf("pa\n");
-//		--stacks.size_b;
-//		++stacks.size_a;
-//	}
-//	final_sort(&stacks.a, args);
-//	destroy_stacks(&stacks);
-//}
+void	sort_stack_hard(t_stack *stack, t_args *args)
+{
+	t_solution			sol;
+
+	while (stack->b_size)
+	{
+		sol = check_stack_b(stack);
+		spin_stack(stack, sol);
+		apply_pa(stack);
+	}
+	final_sort(stack, args);
+}

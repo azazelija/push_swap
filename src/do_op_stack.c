@@ -40,8 +40,15 @@ void	apply_sb(t_stack *stack)
 
 void	apply_ss(t_stack *stack)
 {
+	int 	tmp;
+
+	tmp = stack->print_com;
+	stack->print_com = 0;
+
 	apply_sa(stack);
 	apply_sb(stack);
+	if (tmp != 0)
+		stack->print_com = 1;
 	stack->print_com ? write(1, "ss\n", 3) : 0;
 	stack->counter_com++;
 }
