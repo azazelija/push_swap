@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort_process.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fculator <mstackvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fculator <mstackvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 17:15:25 by fculator          #+#    #+#             */
 /*   Updated: 2019/11/30 17:15:30 by fculator         ###   ########.fr       */
@@ -47,7 +47,7 @@ void		bubble_sort_arr_args(t_args *args, int size)
 	init_args_local(args, size);
 }
 
-void			init_args_local(t_args *args, int size)
+void		init_args_local(t_args *args, int size)
 {
 	args->min_i = args->arr[0];
 	args->mid_s = args->arr[size / 3];

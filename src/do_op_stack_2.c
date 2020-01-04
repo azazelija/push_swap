@@ -14,7 +14,7 @@
 
 void	apply_ra(t_stack *stack)
 {
-	int 	i;
+	int		i;
 	int		tmp;
 
 	if (stack->a_size == 0)
@@ -33,7 +33,7 @@ void	apply_ra(t_stack *stack)
 
 void	apply_rb(t_stack *stack)
 {
-	int 	i;
+	int		i;
 	int		tmp;
 
 	if (stack->b_size == 0)
@@ -52,11 +52,10 @@ void	apply_rb(t_stack *stack)
 
 void	apply_rr(t_stack *stack)
 {
-	int 	tmp;
+	int		tmp;
 
 	tmp = stack->print_com;
 	stack->print_com = 0;
-
 	apply_ra(stack);
 	apply_rb(stack);
 	if (tmp != 0)
@@ -67,8 +66,8 @@ void	apply_rr(t_stack *stack)
 
 void	apply_rra(t_stack *stack)
 {
-	int 	i;
-	int 	tmp;
+	int		i;
+	int		tmp;
 
 	if (stack->a_size == 0)
 		return ;
@@ -86,8 +85,8 @@ void	apply_rra(t_stack *stack)
 
 void	apply_rrb(t_stack *stack)
 {
-	int 	i;
-	int 	tmp;
+	int		i;
+	int		tmp;
 
 	if (stack->b_size == 0)
 		return ;

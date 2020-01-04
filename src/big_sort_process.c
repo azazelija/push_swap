@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort_process.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fculator <mstackvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fculator <mstackvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 17:15:25 by fculator          #+#    #+#             */
 /*   Updated: 2019/11/30 17:15:30 by fculator         ###   ########.fr       */
@@ -30,7 +30,7 @@ void	leave_3_nbrs_in_a(t_stack *stack, t_args *args)
 {
 	int			code;
 	int			i;
-	int 		tmp;
+	int			tmp;
 
 	i = stack->a_size;
 	while (i--)

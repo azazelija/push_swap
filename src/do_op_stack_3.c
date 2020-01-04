@@ -14,11 +14,10 @@
 
 void	apply_rrr(t_stack *stack)
 {
-	int 	tmp;
+	int		tmp;
 
 	tmp = stack->print_com;
 	stack->print_com = 0;
-
 	apply_rra(stack);
 	apply_rrb(stack);
 	if (tmp != 0)

@@ -12,16 +12,15 @@
 
 #include "checker.h"
 
-int 	find_max_el_index(int *stack, int size)
+int		find_max_el_index(int *stack, int size)
 {
-	int 	max_elems;
+	int		max_elems;
 	int		i;
-	int 	index;
+	int		index;
 
 	max_elems = 0;
 	i = -1;
 	index = 0;
-
 	if (size == 0)
 		return (-1);
 	while (++i < size)
@@ -30,34 +29,32 @@ int 	find_max_el_index(int *stack, int size)
 			max_elems = stack[i];
 			index = i;
 		}
-	return  (index);
+	return (index);
 }
 
-int 	find_min_el_index(int *stack, int size)
+int		find_min_el_index(int *stack, int size)
 {
-	int 	min;
+	int		min;
 	int		i;
-	int 	index;
+	int		index;
 
 	if (size == 0)
 		return (-1);
 	min = INT_MAX;
 	i = -1;
 	index = 0;
-
 	while (++i < size)
 		if (stack[i] < min)
 		{
 			min = stack[i];
 			index = i;
 		}
-	return  (index);
+	return (index);
 }
 
-int 	*find_max_elems(int *stack, int size)
+int		*find_max_elems(int *stack, int size)
 {
 	int		*max_elems;
-
 
 	max_elems = (int*)malloc(sizeof(int) * 3);
 	max_elems[0] = stack[0];
@@ -79,4 +76,3 @@ int 	*find_max_elems(int *stack, int size)
 			max_elems[2] = stack[size];
 	return (max_elems);
 }
-

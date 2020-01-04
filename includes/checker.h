@@ -47,25 +47,22 @@ typedef struct		s_solution
 typedef struct		s_args
 {
 	int				*arr;
-	int			max_i;
-	int			mid_s;
-	int			mid_e;
-	int			mid_i;
-	int			min_i;
+	int				max_i;
+	int				mid_s;
+	int				mid_e;
+	int				mid_i;
+	int				min_i;
 }					t_args;
 
 typedef struct		s_stack
 {
-	int		*a;
-	int		*b;
-	int		a_size;
-	int		b_size;
-	int 	counter_com;
-	int		print_com;
+	int				*a;
+	int				*b;
+	int				a_size;
+	int				b_size;
+	int				counter_com;
+	int				print_com;
 }					t_stack;
-
-
-/* CHECHER */
 
 void				free_stack(t_stack *stack);
 void				free_stack_and_args(t_stack *stack, t_args *args);
@@ -74,9 +71,9 @@ void				initialization_stack(t_stack *stack, int ac);
 char				**split_args_to_stack(t_stack *stack, char **av, int *ac);
 void				write_args_to_stack(t_stack *stack, char **av, int ac);
 int					validate_args(char **av, int ac);
-int 				stack_is_sorted(t_stack *stack);
+int					stack_is_sorted(t_stack *stack);
 void				do_operation(t_stack *stack);
-int 				is_operation(char *op, t_stack *stack);
+int					is_operation(char *op, t_stack *stack);
 void				apply_sa(t_stack *stack);
 void				apply_sb(t_stack *stack);
 void				apply_ss(t_stack *stack);
@@ -89,35 +86,29 @@ void				apply_rra(t_stack *stack);
 void				apply_rrb(t_stack *stack);
 void				apply_rrr(t_stack *stack);
 
-/*PUSH_SWAP*/
-
 void				basic_sort(t_stack *stack, t_args *args);
 void				sort_3_numbers_stack(t_stack *stack);
 void				big_sort(t_stack *stack, t_args *args);
-int 				find_max_el_index(int *stack, int size);
-int 				find_min_el_index(int *stack, int size);
-int 				*find_max_elems(int *stack, int size);
+int					find_max_el_index(int *stack, int size);
+int					find_min_el_index(int *stack, int size);
+int					*find_max_elems(int *stack, int size);
 void				small_sort_stack(t_stack *stack);
 void				push_back_to_a(t_stack *stack);
 void				initialization_args(t_args *args, int size);
 void				args_to_array(t_stack *stack, t_args *args);
 void				bubble_sort_arr_args(t_args *args, int size);
 void				init_args_local(t_args *args, int size);
-void 				from_a_to_b(t_stack *stack, t_args *args);
+void				from_a_to_b(t_stack *stack, t_args *args);
 void				big_sort_process(t_stack *stack, t_args *args);
 void				leave_3_nbrs_in_a(t_stack *stack, t_args *args);
 void				sort_stack_hard(t_stack *stack, t_args *args);
 t_solution			check_stack_b(t_stack *stack);
 t_solution			get_solution(t_stack *stacks, int num, size_t i);
 void				first_step(t_solution *solve, size_t i, t_stack *s,
-									  int num);
+		int num);
 int					get_insert_index(t_stack *stack, int num);
 void				second_step(t_solution *solve, size_t i, t_stack *s,
-							int num);
+		int num);
 void				spin_stack(t_stack *stack, t_solution sol);
 void				final_sort(t_stack *stack, t_args *args);
-
-
-void		print_stack(t_stack *stack);
-void		print_solution(t_solution *sol);
 #endif

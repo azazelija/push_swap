@@ -12,9 +12,9 @@
 
 #include "checker.h"
 
-int 	stack_is_sorted(t_stack *stack)
+int		stack_is_sorted(t_stack *stack)
 {
-	int 	i;
+	int		i;
 
 	i = -1;
 	while (++i < stack->a_size - 1)
@@ -27,7 +27,7 @@ int 	stack_is_sorted(t_stack *stack)
 
 void	do_operation(t_stack *stack)
 {
-	char 	*op;
+	char		*op;
 
 	op = 0;
 	while (get_next_line(0, &op) > 0)
@@ -47,7 +47,7 @@ void	do_operation(t_stack *stack)
 	free(op);
 }
 
-int 	is_operation(char *op, t_stack *stack)
+int		is_operation(char *op, t_stack *stack)
 {
 	if (ft_strequ(op, "sa"))
 		apply_sa(stack);

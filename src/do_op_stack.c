@@ -14,7 +14,7 @@
 
 void	apply_sa(t_stack *stack)
 {
-	int 	tmp;
+	int		tmp;
 
 	if (stack->a_size < 2)
 		return ;
@@ -27,7 +27,7 @@ void	apply_sa(t_stack *stack)
 
 void	apply_sb(t_stack *stack)
 {
-	int 	tmp;
+	int		tmp;
 
 	if (stack->b_size < 2)
 		return ;
@@ -40,11 +40,10 @@ void	apply_sb(t_stack *stack)
 
 void	apply_ss(t_stack *stack)
 {
-	int 	tmp;
+	int		tmp;
 
 	tmp = stack->print_com;
 	stack->print_com = 0;
-
 	apply_sa(stack);
 	apply_sb(stack);
 	if (tmp != 0)
@@ -55,7 +54,7 @@ void	apply_ss(t_stack *stack)
 
 void	apply_pa(t_stack *stack)
 {
-	int 	i;
+	int		i;
 
 	if (stack->b_size == 0)
 		return ;
@@ -74,7 +73,7 @@ void	apply_pa(t_stack *stack)
 
 void	apply_pb(t_stack *stack)
 {
-	int 	i;
+	int		i;
 
 	if (stack->a_size == 0)
 		return ;

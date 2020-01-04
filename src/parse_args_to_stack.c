@@ -54,7 +54,7 @@ int		validate_args(char **av, int ac)
 {
 	int		i;
 	int		j;
-	int 	k;
+	int		k;
 
 	i = -1;
 	while (++i < ac)

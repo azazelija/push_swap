@@ -24,13 +24,9 @@ void	basic_sort(t_stack *stack, t_args *args)
 		big_sort(stack, args);
 }
 
-/*
- * Sort 3 elements
- */
-
 void	sort_3_numbers_stack(t_stack *stack)
 {
-	int 	max_el_index;
+	int		max_el_index;
 
 	if (stack->a_size == 1)
 		return ;
@@ -49,12 +45,7 @@ void	sort_3_numbers_stack(t_stack *stack)
 		if (stack->a[0] > stack->a[1])
 			apply_sa(stack);
 	}
-
 }
-
-/*
- * Sort 5 elements
- */
 
 void	small_sort_stack(t_stack *stack)
 {
@@ -72,10 +63,6 @@ void	small_sort_stack(t_stack *stack)
 	push_back_to_a(stack);
 	free(max);
 }
-
-/*
- * Push from b to a
- */
 
 void	push_back_to_a(t_stack *stack)
 {
