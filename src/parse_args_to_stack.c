@@ -42,7 +42,7 @@ void	write_args_to_stack(t_stack *stack, char **av, int ac)
 
 	if (check_visual(stack, ac, av) == 1 || stack->one_size == 1)
 	{
-		i = 0;
+		i = stack->one_size == 0 ? 0: -1;
 		stack->vis_com = 1;
 	}
 	else
@@ -53,10 +53,10 @@ void	write_args_to_stack(t_stack *stack, char **av, int ac)
 		free_stack(stack);
 		exit(1);
 	}
-	stack->vis_com || stack->one_size == 1 ? stack->a_size -= 1 : 0;
-	j = 0;
+	stack->vis_com && stack->one_size == 0 ? stack->a_size -= 1 : 0;
+	j = -1;
 	while (++i < ac)
-		stack->a[j++] = ft_atoi(av[i]);
+		stack->a[++j] = ft_atoi(av[i]);
 }
 
 int		validate_args(char **av, int ac, int in)
