@@ -3,7 +3,7 @@ This project involves sorting data on a stack, with a limited set of instruction
 
 ## Visualization
 
-![](https://www.dropbox.com/home?preview=fculator.gif)
+<a href="https://imgflip.com/gif/3lbvf8"><img src="https://i.imgflip.com/3lbvf8.gif" title="made at imgflip.com"/></a>
 
 ## Restrictions
 
