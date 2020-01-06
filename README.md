@@ -45,6 +45,40 @@ This project involves sorting data on a stack, with a limited set of instruction
 | rrb | rotates stuck B down by one |
 | rrr | rotates both A and B down by one |
 
+## Getting started
+
+### Run the following commands:
+#### Compiling
+
++ To compile
+```diff
+- make
+```
++ To remove objects:
+```diff
+- make clean
+```
++ To remove objects and binary file (program):
+```diff
+- make fclean
+```
++ To re-compile:
+```diff
+- make re
+```
+#### Testing
+
++ To test the function add the rand function to .zshrc
+```diff
+- function rand{ruby -e "puts ($1 .. $2).to_a.shuffle.join('')"}
+
+- ARG=$(rand 0 99); ./push_swap $ARG | ./checker $ARG
+```  
++ To check the function for the number of commands
+```diff
+- ARG=$(rand 0 99); ./push_swap $ARG | wc -l
+```  
+
 ## Sources
 
 [Sorting algorithm](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
