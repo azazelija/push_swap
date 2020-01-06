@@ -22,10 +22,10 @@ int		main(int ac, char **av)
 		exit(1);
 	ac--;
 	av++;
-	if (ac == 1)
-	{
+	if (ac == 1 || (check_visual(stack, ac, av) && ac == 2))
 		av = split_args_to_stack(stack, av, &ac);
-	}
+	else
+		stack->one_size = 0;
 	initialization_stack(stack, ac);
 	initialization_args(args, ac);
 	stack->print_com = 1;

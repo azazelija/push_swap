@@ -23,5 +23,5 @@ void	apply_rrr(t_stack *stack)
 	if (tmp != 0)
 		stack->print_com = 1;
 	stack->print_com ? write(1, "rrr\n", 4) : 0;
-	stack->counter_com++;
+	stack->vis_com && stack->print_com ? print_stack(stack) : 0;
 }

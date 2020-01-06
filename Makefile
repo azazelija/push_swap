@@ -29,6 +29,7 @@ FILES := basic_sort_process \
 			parse_args_to_stack \
 			solution_steps \
 			sort_array \
+			print_stack \
 
 LFTDIR := ./libft
 

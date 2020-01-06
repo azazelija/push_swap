@@ -22,7 +22,7 @@ void	apply_sa(t_stack *stack)
 	stack->a[0] = stack->a[1];
 	stack->a[1] = tmp;
 	stack->print_com ? write(1, "sa\n", 3) : 0;
-	stack->counter_com++;
+	stack->vis_com ? print_stack(stack) : 0;
 }
 
 void	apply_sb(t_stack *stack)
@@ -35,7 +35,7 @@ void	apply_sb(t_stack *stack)
 	stack->b[0] = stack->b[1];
 	stack->b[1] = tmp;
 	stack->print_com ? write(1, "sb\n", 3) : 0;
-	stack->counter_com++;
+	stack->vis_com ? print_stack(stack) : 0;
 }
 
 void	apply_ss(t_stack *stack)
@@ -49,7 +49,7 @@ void	apply_ss(t_stack *stack)
 	if (tmp != 0)
 		stack->print_com = 1;
 	stack->print_com ? write(1, "ss\n", 3) : 0;
-	stack->counter_com++;
+	stack->vis_com && stack->print_com ? print_stack(stack) : 0;
 }
 
 void	apply_pa(t_stack *stack)
@@ -68,7 +68,7 @@ void	apply_pa(t_stack *stack)
 	stack->a_size++;
 	stack->b_size--;
 	stack->print_com ? write(1, "pa\n", 3) : 0;
-	stack->counter_com++;
+	stack->vis_com ? print_stack(stack) : 0;
 }
 
 void	apply_pb(t_stack *stack)
@@ -87,5 +87,5 @@ void	apply_pb(t_stack *stack)
 	stack->b_size++;
 	stack->a_size--;
 	stack->print_com ? write(1, "pb\n", 3) : 0;
-	stack->counter_com++;
+	stack->vis_com ? print_stack(stack) : 0;
 }

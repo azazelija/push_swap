@@ -6,7 +6,7 @@
 /*   By: fculator <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 18:22:07 by fculator          #+#    #+#             */
-/*   Updated: 2019/11/25 18:22:36 by fculator         ###   ########.fr       */
+/*   Updated: 2020/01/06 17:55:10 by fculator         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,9 @@ typedef struct		s_stack
 	int				*b;
 	int				a_size;
 	int				b_size;
-	int				counter_com;
+	int				vis_com;
 	int				print_com;
+	int				one_size;
 }					t_stack;
 
 void				free_stack(t_stack *stack);
@@ -70,7 +71,7 @@ int					get_next_line(const int fd, char **line);
 void				initialization_stack(t_stack *stack, int ac);
 char				**split_args_to_stack(t_stack *stack, char **av, int *ac);
 void				write_args_to_stack(t_stack *stack, char **av, int ac);
-int					validate_args(char **av, int ac);
+int					validate_args(char **av, int ac, int in);
 int					stack_is_sorted(t_stack *stack);
 void				do_operation(t_stack *stack);
 int					is_operation(char *op, t_stack *stack);
@@ -111,4 +112,6 @@ void				second_step(t_solution *solve, size_t i, t_stack *s,
 		int num);
 void				spin_stack(t_stack *stack, t_solution sol);
 void				final_sort(t_stack *stack, t_args *args);
+void				print_stack(t_stack *stack);
+int					check_visual(t_stack *stack, int ac, char **av);
 #endif

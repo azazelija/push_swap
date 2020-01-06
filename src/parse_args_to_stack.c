@@ -20,7 +20,7 @@ void	initialization_stack(t_stack *stack, int ac)
 		exit(1);
 	stack->a_size = ac;
 	stack->b_size = 0;
-	stack->counter_com = 0;
+	stack->vis_com = 0;
 }
 
 void	initialization_args(t_args *args, int size)
@@ -38,25 +38,34 @@ void	initialization_args(t_args *args, int size)
 void	write_args_to_stack(t_stack *stack, char **av, int ac)
 {
 	int		i;
+	int		j;
 
-	i = -1;
-	if (!validate_args(av, ac))
+	if (check_visual(stack, ac, av) == 1 || stack->one_size == 1)
+	{
+		i = 0;
+		stack->vis_com = 1;
+	}
+	else
+		i = -1;
+	if (!validate_args(av, ac, i))
 	{
 		ft_putstr_fd("Error\n", 2);
 		free_stack(stack);
 		exit(1);
 	}
+	stack->vis_com || stack->one_size == 1 ? stack->a_size -= 1 : 0;
+	j = 0;
 	while (++i < ac)
-		stack->a[i] = ft_atoi(av[i]);
+		stack->a[j++] = ft_atoi(av[i]);
 }
 
-int		validate_args(char **av, int ac)
+int		validate_args(char **av, int ac, int in)
 {
 	int		i;
 	int		j;
 	int		k;
 
-	i = -1;
+	i = in;
 	while (++i < ac)
 	{
 		j = i;
@@ -79,7 +88,15 @@ int		validate_args(char **av, int ac)
 
 char	**split_args_to_stack(t_stack *stack, char **av, int *ac)
 {
-	av = ft_strsplit(av[0], ' ');
+	int		i;
+
+	i = 0;
+	if (check_visual(stack, *ac, av))
+	{
+		i += 1;
+		stack->one_size = 1;
+	}
+	av = ft_strsplit(av[i], ' ');
 	*ac = 0;
 	while (av && av[*ac])
 		*ac += 1;

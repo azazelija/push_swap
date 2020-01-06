@@ -28,7 +28,7 @@ void	apply_ra(t_stack *stack)
 	}
 	stack->a[i - 1] = tmp;
 	stack->print_com ? write(1, "ra\n", 3) : 0;
-	stack->counter_com++;
+	stack->vis_com ? print_stack(stack) : 0;
 }
 
 void	apply_rb(t_stack *stack)
@@ -47,7 +47,7 @@ void	apply_rb(t_stack *stack)
 	}
 	stack->b[i - 1] = tmp;
 	stack->print_com ? write(1, "rb\n", 3) : 0;
-	stack->counter_com++;
+	stack->vis_com ? print_stack(stack) : 0;
 }
 
 void	apply_rr(t_stack *stack)
@@ -61,7 +61,7 @@ void	apply_rr(t_stack *stack)
 	if (tmp != 0)
 		stack->print_com = 1;
 	stack->print_com ? write(1, "rr\n", 3) : 0;
-	stack->counter_com++;
+	stack->vis_com && stack->print_com ? print_stack(stack) : 0;
 }
 
 void	apply_rra(t_stack *stack)
@@ -80,7 +80,7 @@ void	apply_rra(t_stack *stack)
 	}
 	stack->a[0] = tmp;
 	stack->print_com ? write(1, "rra\n", 4) : 0;
-	stack->counter_com++;
+	stack->vis_com && stack->print_com ? print_stack(stack) : 0;
 }
 
 void	apply_rrb(t_stack *stack)
@@ -99,5 +99,5 @@ void	apply_rrb(t_stack *stack)
 	}
 	stack->b[0] = tmp;
 	stack->print_com ? write(1, "rrb\n", 4) : 0;
-	stack->counter_com++;
+	stack->vis_com && stack->print_com ? print_stack(stack) : 0;
 }
