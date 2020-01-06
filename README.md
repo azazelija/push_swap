@@ -1,6 +1,10 @@
 # push_swap
 This project involves sorting data on a stack, with a limited set of instructions, and the smallest number of moves. To make this happen, you will have to manipulate various sorting algorithms and choose the most appropriate solution(s) for optimized data sorting.
 
+## Visualization
+
+[!gif](https://vk.com/doc489859801_531238895?hash=99ddff7a9f9a786f79&dl=c7625c447a2391d8e8)
+
 ## Restrictions
 
 | Stack size | Operations |
