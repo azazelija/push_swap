@@ -5,6 +5,13 @@ This project involves sorting data on a stack, with a limited set of instruction
 
 ![](https://github.com/azazelija/push_swap/blob/master/fculator.gif)
 
+## Algorithm
+
+### Sorting three numbers
+- We find the maximum element index of the stack A
+- If it is at the top, do <b>ra</b>, if in the middle do <b>rra</b>
+- Then we compare the first two numbers with each other and change their places, if necessary, using <b>sa</b>
+
 ## Restrictions
 
 | Stack size | Operations |
