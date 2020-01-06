@@ -8,9 +8,17 @@ This project involves sorting data on a stack, with a limited set of instruction
 ## Algorithm
 
 ### Sorting three numbers
-- We find the maximum element index of the stack A
+- We find the maximum elements index of the stack A
 - If it is at the top, do <b>ra</b>, if in the middle do <b>rra</b>
 - Then we compare the first two numbers with each other and change their places, if necessary, using <b>sa</b>
+![](https://sun9-65.userapi.com/c206624/v206624884/2e82f/oFLwbFSIPyE.jpg)
+
+### Sorting five or less numbers
+- We find the maximum element index of the stack A
+- Сompare the first number in the stack. If number less than three maximum throw in the stack B with <b>pb</b>, else apply <b>ra</b>
+- Then we sort the array A with the previously written sorting algorithm for 3 numbers
+- In stack b, we find the maximum element and compare it with the first number in stack b, if they match, then we do <b>pb</b> <b>pb</b>, otherwise <b>sb</b>
+![](https://sun9-25.userapi.com/c206624/v206624381/2f6e7/6PeTsyyYKfQ.jpg)
 
 ## Restrictions
 
