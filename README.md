@@ -20,6 +20,18 @@ This project involves sorting data on a stack, with a limited set of instruction
 - In stack b, we find the maximum element and compare it with the first number in stack b, if they match, then we do <b>pb</b> <b>pb</b>, otherwise <b>sb</b>
 ![](https://sun9-25.userapi.com/c206624/v206624381/2f6e7/6PeTsyyYKfQ.jpg)
 
+### Sorting all numbers greater than 5
+- We sort our stack A in any convenient way and record the minimum, maximum, beginning of the middle part, the average number, and the end of the middle part
+<img src="https://sun9-49.userapi.com/c855424/v855424359/1c2f25/o5XWVU5E300.jpg" data-canonical-src="https://sun9-49.userapi.com/c855424/v855424359/1c2f25/o5XWVU5E300.jpg" width=40% height=40%>
+- Then all the numbers except the minimum middle and the maximum group, we throw into the stack B
+<img src="https://sun9-47.userapi.com/c855424/v855424359/1c2f5a/ljORdOTOm-4.jpg" data-canonical-src="https://sun9-47.userapi.com/c855424/v855424359/1c2f5a/ljORdOTOm-4.jpg" width=36% height=36%>
+- Next, we throw all the numbers except the minimum middle and maximum in the stack B, and sort stack A
+<img src="https://sun9-50.userapi.com/c855424/v855424359/1c2fa4/WskyPCoR0vQ.jpg" data-canonical-src="https://sun9-50.userapi.com/c855424/v855424359/1c2fa4/WskyPCoR0vQ.jpg" width=40% height=40%>
+- Then we look at all the numbers in stack B and select the best way to insert them into stack A (the minimum number of operations). We are looking at 4 ways to twist the stack to make a <b>pa</b>
+<img src="https://sun9-58.userapi.com/c855424/v855424498/1c5862/hiKOkIBnQAY.jpg" data-canonical-src="https://sun9-58.userapi.com/c855424/v855424498/1c5862/hiKOkIBnQAY.jpg" width=110% height=110%>
+- After all the numbers from stack B fall into place in stack A, we scroll the stack A so that the minimum number is at the top, considering how best to do it: using <b>ra</b> or <b>rra</b>
+<img src="https://sun9-42.userapi.com/c855424/v855424498/1c58b4/hd_DUq-gfdU.jpg" data-canonical-src="https://sun9-42.userapi.com/c855424/v855424498/1c58b4/hd_DUq-gfdU.jpg" width=40% height=40%>
+
 ## Restrictions
 
 | Stack size | Operations |
