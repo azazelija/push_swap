@@ -83,6 +83,7 @@ This project involves sorting data on a stack, with a limited set of instruction
 + To test the function add the rand function to .zshrc
 ```diff
 - function rand{ruby -e "puts ($1 .. $2).to_a.shuffle.join(' ')"}
+- source ~/.zshrc
 
 - ARG=$(rand 0 99); ./push_swap $ARG | ./checker $ARG
 ```  
