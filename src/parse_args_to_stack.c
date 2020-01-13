@@ -6,7 +6,7 @@
 /*   By: fculator <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 18:32:23 by fculator          #+#    #+#             */
-/*   Updated: 2019/11/25 18:32:26 by fculator         ###   ########.fr       */
+/*   Updated: 2020/01/13 18:31:37 by fculator         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	write_args_to_stack(t_stack *stack, char **av, int ac)
 
 	if (check_visual(stack, ac, av) == 1 || stack->one_size == 1)
 	{
-		i = stack->one_size == 0 ? 0: -1;
+		i = stack->one_size == 0 ? 0 : -1;
 		stack->vis_com = 1;
 	}
 	else

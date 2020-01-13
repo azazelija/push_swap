@@ -44,27 +44,64 @@ void		final_sort(t_stack *stack, t_args *args)
 {
 	size_t		i;
 	size_t		n;
-	t_stack		*stack_a;
-	t_stack		*stack_a2;
+	t_stack		*fal;
+	t_stack		*fal_2;
 
 	i = 0;
 	n = 0;
-	stack_a = stack;
-	stack_a2 = stack;
-	while (stack_a->a[0] != args->min_i)
+	fal = init_2(stack);
+	while (fal->a[0] != args->min_i)
 	{
-		apply_rra(stack_a);
+		apply_rra(fal);
 		++i;
 	}
-	while (stack_a2->a[0] != args->min_i)
+	free_fal(fal);
+	fal_2 = init_2(stack);
+	while (fal_2->a[0] != args->min_i)
 	{
-		apply_ra(stack_a2);
+		apply_ra(fal_2);
 		++n;
 	}
+	free_fal(fal_2);
+	final_norm_sort(stack, args, i, n);
+}
+
+void		final_norm_sort(t_stack *stack, t_args *args, int i, int n)
+{
 	if (i < n)
 		while (stack->a[0] != args->min_i)
 			apply_rra(stack);
 	else
 		while (stack->a[0] != args->min_i)
 			apply_ra(stack);
+}
+
+t_stack		*init_2(t_stack *or)
+{
+	int			i;
+	t_stack		*fal;
+
+	fal = (t_stack *)malloc(sizeof(t_stack));
+	fal->a = (int *)malloc(sizeof(int) * (or->a_size + 1));
+	fal->b = (int *)ft_memalloc(sizeof(int) * (or->a_size + 1));
+	i = -1;
+	while (++i < or->a_size)
+		fal->a[i] = or->a[i];
+	fal->a_size = or->a_size;
+	i = -1;
+	while (++i < or->b_size)
+		fal->b[i] = or->b[i];
+	fal->b_size = or->b_size;
+	fal->one_size = 0;
+	fal->print_com = 0;
+	fal->vis_com = 0;
+	return (fal);
+}
+
+void		free_fal(t_stack *fal)
+{
+	free(fal->a);
+	free(fal->b);
+	free(fal);
+	fal = NULL;
 }

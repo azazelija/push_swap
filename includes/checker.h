@@ -114,4 +114,7 @@ void				spin_stack(t_stack *stack, t_solution sol);
 void				final_sort(t_stack *stack, t_args *args);
 void				print_stack(t_stack *stack);
 int					check_visual(t_stack *stack, int ac, char **av);
+t_stack				*init_2(t_stack *or);
+void				free_fal(t_stack *fal);
+void				final_norm_sort(t_stack *stack, t_args *args, int i, int n);
 #endif
