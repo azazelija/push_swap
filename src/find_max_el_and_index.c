@@ -76,3 +76,17 @@ int		*find_max_elems(int *stack, int size)
 			max_elems[2] = stack[size];
 	return (max_elems);
 }
+
+void	minus(t_stack *stack, char **av, int *k, int *i)
+{
+	if (av[*i][*k] == '-')
+	{
+		(*k)++;
+		if (!ft_isdigit(av[*i][*k]))
+		{
+			ft_putstr_fd("Error\n", 2);
+			free(stack);
+			exit(1);
+		}
+	}
+}

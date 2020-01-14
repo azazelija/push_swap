@@ -119,4 +119,5 @@ t_stack				*init_2(t_stack *or);
 void				free_fal(t_stack *fal);
 void				final_norm_sort(t_stack *stack, t_args *args, int i, int n);
 void				ft_free_av(char **av);
+void				minus(t_stack *stack, char **av, int *k, int *i);
 #endif

@@ -80,16 +80,7 @@ int		validate_args(char **av, int ac, int in, t_stack *stack)
 		}
 		while (av[i][++k])
 		{
-			if (av[i][k] == '-')
-			{
-				k++;
-				if (!ft_isdigit(av[i][k]))
-				{
-					ft_putstr_fd("Error\n", 2);
-					free(stack);
-					exit(1);
-				}
-			}
+			minus(stack, av, &k, &i);
 			if (!ft_isdigit(av[i][k]))
 				return (0);
 		}
