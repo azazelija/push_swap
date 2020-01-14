@@ -30,3 +30,15 @@ void	free_stack_and_args(t_stack *stack, t_args *args)
 	free(args);
 	args = NULL;
 }
+
+void	ft_free_av(char **av)
+{
+	int i;
+
+	i = 0;
+	(!av || !*av) ? exit(0) : 0;
+	while (av[i] != NULL)
+		free(av[i++]);
+	free(av);
+	av = NULL;
+}

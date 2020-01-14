@@ -47,7 +47,7 @@ void	write_args_to_stack(t_stack *stack, char **av, int ac)
 	}
 	else
 		i = -1;
-	if (!validate_args(av, ac, i))
+	if (!validate_args(av, ac, i, stack))
 	{
 		ft_putstr_fd("Error\n", 2);
 		free_stack(stack);
@@ -57,9 +57,10 @@ void	write_args_to_stack(t_stack *stack, char **av, int ac)
 	j = -1;
 	while (++i < ac)
 		stack->a[++j] = ft_atoi(av[i]);
+	stack->code == 1 ? ft_free_av(av) : 0;
 }
 
-int		validate_args(char **av, int ac, int in)
+int		validate_args(char **av, int ac, int in, t_stack *stack)
 {
 	int		i;
 	int		j;
@@ -69,7 +70,7 @@ int		validate_args(char **av, int ac, int in)
 	while (++i < ac)
 	{
 		j = i;
-		k = 0;
+		k = -1;
 		if (ft_atoi(av[i]) > INT_MAX || ft_atoi(av[i]) < INT_MIN)
 			return (0);
 		while (av[++j])
@@ -77,9 +78,19 @@ int		validate_args(char **av, int ac, int in)
 			if (ft_strequ(av[j], av[i]))
 				return (0);
 		}
-		while (av[i][k])
+		while (av[i][++k])
 		{
-			if (!ft_isdigit(av[i][k++]))
+			if (av[i][k] == '-')
+			{
+				k++;
+				if (!ft_isdigit(av[i][k]))
+				{
+					ft_putstr_fd("Error\n", 2);
+					free(stack);
+					exit(1);
+				}
+			}
+			if (!ft_isdigit(av[i][k]))
 				return (0);
 		}
 	}
@@ -106,5 +117,6 @@ char	**split_args_to_stack(t_stack *stack, char **av, int *ac)
 		free(stack);
 		exit(1);
 	}
+	stack->code = 1;
 	return (av);
 }

@@ -6,7 +6,7 @@
 /*   By: fculator <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 18:22:07 by fculator          #+#    #+#             */
-/*   Updated: 2020/01/06 17:55:10 by fculator         ###   ########.fr       */
+/*   Updated: 2020/01/13 21:21:30 by fculator         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct		s_stack
 	int				vis_com;
 	int				print_com;
 	int				one_size;
+	int				code;
 }					t_stack;
 
 void				free_stack(t_stack *stack);
@@ -71,7 +72,7 @@ int					get_next_line(const int fd, char **line);
 void				initialization_stack(t_stack *stack, int ac);
 char				**split_args_to_stack(t_stack *stack, char **av, int *ac);
 void				write_args_to_stack(t_stack *stack, char **av, int ac);
-int					validate_args(char **av, int ac, int in);
+int					validate_args(char **av, int ac, int in, t_stack *stack);
 int					stack_is_sorted(t_stack *stack);
 void				do_operation(t_stack *stack);
 int					is_operation(char *op, t_stack *stack);
@@ -117,4 +118,5 @@ int					check_visual(t_stack *stack, int ac, char **av);
 t_stack				*init_2(t_stack *or);
 void				free_fal(t_stack *fal);
 void				final_norm_sort(t_stack *stack, t_args *args, int i, int n);
+void				ft_free_av(char **av);
 #endif
